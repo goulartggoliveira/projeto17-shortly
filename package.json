@@ -1,0 +1,25 @@
+{
+  "name": "projeto17-shortly",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": ".src/app.js",
+  "scripts": {
+    "start": "node .src/app.js",
+    "dev": "nodemon .src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goulartggoliveira/projeto17-shortly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goulartggoliveira/projeto17-shortly/issues"
+  },
+  "homepage": "https://github.com/goulartggoliveira/projeto17-shortly#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

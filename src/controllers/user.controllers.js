@@ -1,4 +1,4 @@
-import { getUrlsUsers, getUserId } from "../repositories/user.repository.js";
+import { getRanking, getUrlsUsers, getUserId } from "../repositories/user.repository.js";
 
 export async function getCurrentUser(req, res) {
     const { userId } = res.locals
@@ -14,6 +14,8 @@ export async function getCurrentUser(req, res) {
 
 export async function getUserRanking(req, res) {
   try {
+    const {rows: ranking } = await getRanking()
+    res.send(ranking)
   } catch (error) {
     res.status(500).send(error.message);
   }

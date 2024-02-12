@@ -1,3 +1,4 @@
+import { getUserRanking } from "../controllers/user.controllers.js";
 import { db } from "../database/database.connection.js";
 
 export function getUserByEmail(email) {
@@ -27,4 +28,13 @@ export function getUrlsUsers(userId) {
     `SELECT id, "shortUrl", url, "visitCount" FROM urls WHERE "userId" = $1;`,
     [userId]
   );
+}
+
+export function getRanking() {
+  return db.query(`SELECT users.id, users.name, COUNT(urls.id) "linksCount", COALESCE(SUM(urls."visitCount"), 0) AS "visitCount"
+  FROM users 
+  LEFT JOIN urls ON users.id = urls."userId"
+  GROUP BY users.id, users.name
+  ORDER BY "visitCount" DESC, "linksCount" DESC
+  LIMIT 10;`);
 }
